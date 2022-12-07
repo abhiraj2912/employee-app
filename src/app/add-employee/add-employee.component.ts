@@ -25,6 +25,20 @@ export class AddEmployeeComponent {
     this.api.addEmployee(data).subscribe(
       (response:any)=>{
         console.log(response)
+        if (response.status=="success") {
+          alert("Employee added Successfully")
+          this.empCode=""
+          this.name=""
+          this.designation=""
+          this.salary=""
+          this.companyName=""
+          this.mobileNo=""
+          this.username=""
+          this.password=""
+
+      } else {
+        alert("Something went wrong")
+      }
       }
     )
 
