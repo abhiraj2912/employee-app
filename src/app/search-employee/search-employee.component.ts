@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApiService } from '../api.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { ApiService } from '../api.service';
 })
 export class SearchEmployeeComponent {
 
-  constructor(private api:ApiService){}
+  constructor(private api:ApiService, private route:Router){}
 
   empCode=""
   searchData:any=[]
@@ -28,6 +29,21 @@ export class SearchEmployeeComponent {
       }
     }
   )
+  }
+
+  deleteBtnClick=(id:any)=>{
+    let deleteData:any={"id":id}
+    this.api.deleteEmployee(deleteData).subscribe(
+      (response:any)=>{
+        console.log(response)
+        if (response.status=="success") {
+          alert("Deleted")
+          this.searchData=[]
+        } else {
+          alert("Something went wrong")
+        }
+      }
+    )
   }
 
 }
