@@ -8,7 +8,8 @@ import { ViewEmployeeComponent } from './view-employee/view-employee.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { SearchEmployeeComponent } from './search-employee/search-employee.component'
 
 const myRoute:Routes=[
   {
@@ -18,6 +19,10 @@ const myRoute:Routes=[
   {
     path:"view",
     component:ViewEmployeeComponent
+  },
+  {
+    path:"search",
+    component:SearchEmployeeComponent
   }
 ]
 
@@ -26,7 +31,8 @@ const myRoute:Routes=[
     AppComponent,
     AddEmployeeComponent,
     ViewEmployeeComponent,
-    NavbarComponent
+    NavbarComponent,
+    SearchEmployeeComponent
   ],
   imports: [
     BrowserModule,
